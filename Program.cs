@@ -6,31 +6,33 @@ namespace EmployeeWage
     {
         static void Main(string[] args)
         {
-            //Constants
-            int IsFullTime = 2;
-            int IsPartTime = 1;
-            int EmpRatePerHour = 20;
+            public const int IsPartTime = 1;
+        public const int IsFullTime = 2;
+        public const int EmpRatePerHr = 20;
+
+        static void Main(string[] args)
+        {
             //Variables
             int empWage = 0;
             int empHr = 0;
             Random random = new Random();
             //Computation
             int empCheck = random.Next(0, 3);
-            if (empCheck == IsPartTime)
+            switch (empCheck)
             {
+                case IsPartTime:
+                    empHr = 4;
+                    break;
 
-                empHr = 4;
-            }
-            else if (empCheck == IsFullTime)
-            {
+                case IsFullTime:
+                    empHr = 8;
+                    break;
 
-                empHr = 8;
+                default:
+                    empHr = 0;
+                    break;
             }
-            else
-            {
-                empHr = 0;
-            }
-            empWage = empHr * EmpRatePerHour;
+            empWage = empHr * EmpRatePerHr;
             Console.WriteLine("Employee Wage = " + empWage);
         }
     }
