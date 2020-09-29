@@ -7,21 +7,22 @@ namespace EmployeeWage
         static void Main(string[] args)
         {
 
-		  public const int IsPartTime = 1;
+		public const int IsPartTime = 1;
 		public const int IsFullTime = 2;
 		public const int EmpRatePerHr = 20;
 		public const int NumOfWorkingDays = 2;
+		public const int MaxHrInAMonth = 10;
+
 		static void Main(string[] args)
 		{
-			//Variables
-			int empWage = 0;
-			int empHr = 0;
-			int TotalEmpWage = 0;
 
-			//Computation
-			for (int Day = 0; Day < NumOfWorkingDays; Day++)
+			int TotalempHr = 0;
+			int empHr = 0;
+			int TotalWorkingDays = 0;
+			while (TotalempHr <= MaxHrInAMonth && TotalWorkingDays <= NumOfWorkingDays)
 			{
-				Random random = new Random();
+				TotalWorkingDays++;
+				random random = new Random();
 				int empCheck = random.next(0, 3);
 				switch (empCheck)
 				{
@@ -35,11 +36,10 @@ namespace EmployeeWage
 						empHr = 0;
 						break;
 				}
-
-				empWage = empHr * EmpRatePerHr;
-				TotalEmpWage += empWage;
-				Console.WriteLine("Employee Wage = " + empWage);
+				TotalEmpHr += empHr;
+				Console.WriteLine("Day # =" + TotalWorkingDays + "Emp hrs :" + empHr);
 			}
+			int TotalEmpWage = TotalempHr * EmpRatePerHr;
 			Console.WriteLine("Total Emp Wage = " + TotalEmpWage);
 		}
     }
