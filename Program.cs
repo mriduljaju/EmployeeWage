@@ -7,23 +7,27 @@ namespace EmployeeWage
         static void Main(string[] args)
         {
             //Constants
-            int IsFullTime = 1;
+            int IsFullTime = 2;
+            int IsPartTime = 1;
             int EmpRatePerHour = 20;
             //Variables
             int empWage = 0;
             int empHr = 0;
-
             Random random = new Random();
             //Computation
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IsFullTime)
+            int empCheck = random.Next(0, 3);
+            if (empCheck == IsPartTime)
             {
-                Console.WriteLine("Employee is Present.");
+
+                empHr = 4;
+            }
+            else if (empCheck == IsFullTime)
+            {
+
                 empHr = 8;
             }
             else
             {
-                Console.WriteLine("Employee is Absent!");
                 empHr = 0;
             }
             empWage = empHr * EmpRatePerHour;
